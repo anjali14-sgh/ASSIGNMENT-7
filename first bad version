@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int firstBadVersion(int n){ 
+        int head =1;
+        int tail = n;
+
+        while (head <= tail)
+        {
+            int mid = head +(tail -head)/2;
+            if(firstBadVersion(mid))
+            {
+                head = mid +1;
+            }
+            else {
+                tail = mid -1;
+            }
+        }
+        return head ;
+
+        
+    }
+};
